@@ -1,4 +1,3 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import "./App.css";
@@ -28,19 +27,9 @@ export default function App() {
 				if (transactionsReturned) {
 					setTransactions(transactionsReturned);
 				}
-
-				const resTransfers = await axios.get(
-					"http://localhost:3001/bank/transfers"
-				);
-				const transfersReturned = resTransfers?.data?.transfers;
-				if (transfersReturned) {
-					setTransfers(transfersReturned);
-				}
 			} catch (err) {
 				setError(err);
 			}
-
-			setIsFetching(false);
 		};
 
 		fetchTransactions();
